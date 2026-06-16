@@ -10,9 +10,9 @@ export class FileWriter {
         groupAddresses = groupAddresses.sort(sortGroupAdresses)
         try {
             const header = `"Main";"Middle";"Sub";"Address";"Central";"Unfiltered";"Description";"DatapointType";"Security"\n`
-            await fs.promises.writeFile(this.file, header, {encoding: "latin1"})
+            await fs.promises.writeFile(this.file, header, {encoding: "utf8"})
             for (const groupAddress of groupAddresses) {
-                await fs.promises.writeFile(this.file, groupAddress.toCSV(), {encoding: "latin1", flag: 'a'})
+                await fs.promises.writeFile(this.file, groupAddress.toCSV(), {encoding: "utf8", flag: 'a'})
             }
         } catch (err) {
             console.log(`Something went wrong during writing file: ${err}`)

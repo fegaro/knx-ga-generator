@@ -7,7 +7,7 @@ export class MainAddress extends GroupAddress{
     }
 
     get Id(): string {
-        return this.main.toString();
+        return this.main.toString().concat(`/-/-`);
     }
 
     toCSV(): string {
