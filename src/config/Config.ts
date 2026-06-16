@@ -47,11 +47,13 @@ export interface RoomsConfig {
 export interface ThingsConfig {
     feature: string | string[]
     description: string
+    extended_description: string
     sub: number
 }
 
 export interface GroupAdressConfig {
     description: string
+    extended_description: string
     main: number
     middle: number
     sub: number

@@ -5,12 +5,14 @@ import {Room} from "./Room";
 export interface Actions {
     readonly actionGroups: ActionGroup[]
     get fullDescription(): string
+    get extendedDescription(): string
     readonly sub: number
 }
 
 export class Entity extends ObjectPart implements Actions {
     constructor(public readonly sub: number,
                 public readonly description: string,
+                public readonly extended_description: string,
                 public readonly actionGroups: ActionGroup[],
                 private readonly belongsToRoom: Room,
     ) {
@@ -33,5 +35,8 @@ export class Entity extends ObjectPart implements Actions {
         return `${this.floor} ${this.room} ${this.description}`
     }
 
+    get extendedDescription() {
+        return `${this.extended_description}`
+    }
 
 }

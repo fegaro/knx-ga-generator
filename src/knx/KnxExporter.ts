@@ -42,7 +42,7 @@ export class KnxExporter {
             for (const actionGroup of action.actionGroups) {
                 for (const actionPart of actionGroup.getActionParts()) {
 
-                    const sub = new SubAddress(actionGroup.main, actionPart.middle, action.sub, `${action.fullDescription} ${actionPart.action}`)
+                    const sub = new SubAddress(actionGroup.main, actionPart.middle, action.sub, `${action.fullDescription} ${actionPart.action}`, action.extendedDescription)
                     if (!this.addresses.has(sub.middleId)) {
                         throw new Error(`Entity does not belong to any Middlegroup: ${sub.toCSV()}`)
                     }

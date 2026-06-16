@@ -5,7 +5,8 @@ export class SubAddress extends GroupAddress {
     constructor(public readonly main: number,
                 public readonly middle: number,
                 public readonly sub: number,
-                public readonly description: string) {
+                public readonly description: string,
+                public readonly extended_description: string) {
         super(main, middle, sub, description);
     }
 
@@ -18,7 +19,6 @@ export class SubAddress extends GroupAddress {
         return new MiddleAdress(this.main, this.middle, "").Id
     }
     toCSV(): string {
-        return ` ; ;"${this.description}";"${this.Id}";"";"";"";"";"Auto"\n`
+        return ` ; ;"${this.description}";"${this.Id}";"";"";"";"${this.extended_description}";"Auto"\n`
     }
-
 }
